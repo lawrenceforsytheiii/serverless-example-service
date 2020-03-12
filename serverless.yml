@@ -3,10 +3,19 @@ service: post-upload-service
 app: post-upload-app
 org: lawrenceforsytheiii
 
+plugins:
+  - serverless-plugin-scripts
+  - migrate-data
+
 custom:
   function: posts-${self:provider.stage}-function-20200311
   bucket: posts-${self:provider.stage}-bucket-20200311
   table: posts-${self:provider.stage}-table-20200311
+  postUrl: https://jsonplaceholder.typicode.com/posts/1
+  postName: firstPost.txt
+  scripts:
+    hooks:
+      'deploy:finalize': serverless migrate-data -l ${self:custom.function} -b ${self:custom.bucket} -t ${self:custom.table} -u ${self:custom.postUrl} -n ${self:custom.postName}
 
 provider:
   name: aws

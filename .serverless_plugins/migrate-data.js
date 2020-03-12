@@ -19,8 +19,8 @@ const getLambdaFunc = (serverless, options) => {
 const invokeLambda = (serverless, options) => new Promise((resolve, reject) => {
   const lambda = getLambda(serverless);
   const payload = {
-    postUrl: options.resource.postUrl,
-    postName: options.resource.postName
+    postUrl: options.postUrl,
+    postName: options.postName
   };
 
   const params = {
@@ -57,7 +57,7 @@ const getS3Object = (serverless, options) => new Promise((resolve, reject) => {
 
   const params = {
     Bucket: getS3Bucket(serverless, options),
-    Key: invokeLambda(serverless, options)
+    Key: options.postName
   };
 
   s3.getObject(params, (err, data) => {
@@ -134,15 +134,28 @@ class MigrateDataPlugin {
         options: {
           lambda: {
             usage: 'Specify the name of your lambda function',
-            required: true
+            required: true,
+            shortcut: 'l'
           },
           bucket: {
             usage: 'Specify the name of your S3 bucket',
-            required: true
+            required: true,
+            shortcut: 'b'
           },
           table: {
             usage: 'Specify the name of your DynamoDB table',
-            required: true
+            required: true,
+            shortcut: 't'
+          },
+          postUrl: {
+            usage: 'Specify the url to fetch the post object',
+            required: true,
+            shortcut: 'u'
+          },
+          postName: {
+            usage: 'Specify the name of the post and S3 object',
+            required: true,
+            shortcut: 'n'
           }
         }
       }
