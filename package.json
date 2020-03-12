@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "An example serverless deployment package that leverages a plugin to migrate initial data from S3 to a DynamoDB table.",
   "main": "handler.js",
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lawrenceforsytheiii/serverless-example-service.git"
