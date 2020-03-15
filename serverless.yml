@@ -48,10 +48,6 @@ resources:
             AttributeType: S
           - AttributeName: userId
             AttributeType: S
-          - AttributeName: title
-            AttributeType: S
-          - AttributeName: body
-            AttributeType: S
         KeySchema:
           - AttributeName: id
             KeyType: HASH
