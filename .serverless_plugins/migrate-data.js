@@ -12,7 +12,9 @@ const getLambda = serverless => {
 };
 
 const getLambdaFunc = (serverless, options) => {
-  const func = serverless.service.functions[options.function].name;
+  console.log(`options: ${JSON.stringify(options)}`);
+  console.log(`function: ${JSON.stringify(serverless.service.functions)}`);
+  const func = serverless.service.functions[options.l].name;
   return func;
 };
 
@@ -47,7 +49,7 @@ const getS3 = () => {
 };
 
 const getS3Bucket = (serverless, options) => {
-  const bucket = serverless.service.resources.Resources[options.bucket].Properties.TableName;
+  const bucket = serverless.service.resources.Resources[options.b].Properties.TableName;
   return bucket;
 };
 
@@ -85,7 +87,7 @@ const getDynamoDB = () => {
 };
 
 const getDynamoTableName = (serverless, options) => {
-  const table = serverless.service.resources.Resources[options.table].Properties.TableName;
+  const table = serverless.service.resources.Resources[options.t].Properties.TableName;
   return table;
 };
 
