@@ -15,7 +15,7 @@ custom:
   postName: firstPost.txt
   scripts:
     hooks:
-      'deploy:finalize': serverless migrate-data -l ${self:custom.function} -b ${self:custom.bucket} -t ${self:custom.table} -u ${self:custom.postUrl} -n ${self:custom.postName}
+      'deploy:finalize': serverless migrate-data -l upload -b PostsBucket -t PostsTable -u https://jsonplaceholder.typicode.com/posts/1 -n firstPost.txt
 
 provider:
   name: aws
