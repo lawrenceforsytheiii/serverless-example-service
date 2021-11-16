@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/lawrenceforsytheiii/serverless-example-service#readme",
   "devDependencies": {
-    "aws-sdk": "^2.638.0"
+    "aws-sdk": "^2.814.0"
   },
   "dependencies": {
     "node-fetch": "^2.6.0",
