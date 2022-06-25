@@ -25,7 +25,7 @@
     "aws-sdk": "^2.638.0"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "serverless-plugin-scripts": "^1.0.2"
   }
 }
